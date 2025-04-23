@@ -1,0 +1,16 @@
+[build]
+  publish = "packages/frontend/out"
+  command = "cd packages/frontend && npm run build && npm run export"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  function = "api"
+  status = 200
+
+[dev]
+  command = "npm run dev --prefix packages/frontend"
+  targetPort = 3000
+
